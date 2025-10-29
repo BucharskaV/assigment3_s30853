@@ -8,14 +8,14 @@ Console.WriteLine($"Volume: {sphere.CalculateVolume():F3}");
 Console.WriteLine();
 
 // Create a Cylinder with radius 3 and height 7
-var cylinder = new Cylinder(3, 7);
+var cylinder = new TestsCylinder(3, 7);
 Console.WriteLine("Cylinder:");
 Console.WriteLine($"Area: {cylinder.CalculateArea():F3}");
 Console.WriteLine($"Volume: {cylinder.CalculateVolume():F3}");
 Console.WriteLine();
 
 // Create a Rectangle with length 4 and width 8
-var rectangle = new Rectangle(4, 8);
+var rectangle = new TestsRectangle(4, 8);
 Console.WriteLine("Rectangle:");
 Console.WriteLine($"Area: {rectangle.CalculateArea():F3}");
 // Rectangle is a 2D shape, so volume is 0
@@ -23,7 +23,7 @@ Console.WriteLine($"Volume: {rectangle.CalculateVolume():F3}");
 Console.WriteLine();
 
 // Create a Cube with side 4
-var cube = new Cube(4);
+var cube = new TestsCube(4);
 Console.WriteLine("Cube:");
 Console.WriteLine($"Area: {cube.CalculateArea():F3}");
 Console.WriteLine($"Volume: {cube.CalculateVolume():F3}");
@@ -36,9 +36,9 @@ namespace Assigment3
         double CalculateVolume();
     }
     
-    public class Cube(double side) : IShape
+    public class TestsCube(double side) : IShape
     {
-        private readonly double side = side > 0 ? side : throw new AggregateException("The side must be positive number!");
+        private readonly double side = side > 0 ? side : throw new ArgumentException("The side must be positive number!");
 
         public double CalculateArea()
         {
@@ -52,10 +52,10 @@ namespace Assigment3
 
     }
     
-    public class Rectangle(double length, double width) : IShape
+    public class TestsRectangle(double length, double width) : IShape
     {
-        private readonly double length = length > 0 ? length : throw new AggregateException("The length must be positive number!");
-        private readonly double width = width > 0 ? width : throw new AggregateException("The width must be positive number!");
+        private readonly double length = length > 0 ? length : throw new ArgumentException("The length must be positive number!");
+        private readonly double width = width > 0 ? width : throw new ArgumentException("The width must be positive number!");
 
         public double CalculateArea()
         {
@@ -68,10 +68,10 @@ namespace Assigment3
         }
     }
     
-    public class Cylinder(double radius, double height) : IShape
+    public class TestsCylinder(double radius, double height) : IShape
     {
-        private readonly double radius = radius > 0 ? radius : throw new AggregateException("The radius must be positive number!");
-        private readonly double height = height > 0 ? height : throw new AggregateException("The height must be positive number!");
+        private readonly double radius = radius > 0 ? radius : throw new ArgumentException("The radius must be positive number!");
+        private readonly double height = height > 0 ? height : throw new ArgumentException("The height must be positive number!");
 
         public double CalculateArea()
         {
@@ -87,7 +87,7 @@ namespace Assigment3
     
     public class Sphere(double radius) : IShape
     {
-        private readonly double radius = radius > 0 ? radius : throw new AggregateException("The radius must be positive number!");
+        private readonly double radius = radius > 0 ? radius : throw new ArgumentException("The radius must be positive number!");
 
         public double CalculateArea()
         {
