@@ -11,4 +11,5 @@ Open Test Explorer, click on "Run all tests" or run tests separatly.
 By CMD:
 
   dotnet test TestAssigment3
+  
   dotnet test TestsAssigment3Part2  
